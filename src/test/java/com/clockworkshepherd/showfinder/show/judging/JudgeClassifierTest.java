@@ -13,7 +13,7 @@ class JudgeClassifierTest {
         judgingPlan.addRing();
 
         String input = "Sędzia: Nenad Mtejevic (RS)";
-        JudgeClassifier.process(input, judgingPlan);
+        new JudgeClassifier().process(input, judgingPlan);
 
         Assertions.assertEquals("Nenad Mtejevic", judgingPlan.getLastRing().getJudge());
     }

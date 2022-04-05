@@ -4,7 +4,7 @@ import java.util.List;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
-public class BreedClassifier {
+public class BreedClassifier implements Classifier{
     public final static Pattern pattern = Pattern.compile("([A-Z]?[a-z]+\\s?)+");
 
     private final List<String> breeds;
