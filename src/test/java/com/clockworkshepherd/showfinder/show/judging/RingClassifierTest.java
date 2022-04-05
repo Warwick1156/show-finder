@@ -37,10 +37,4 @@ class RingClassifierTest {
         assertEquals(5, judgingPlan.getLastRing().getRingNumber());
     }
 
-    @Test
-    void extractRingNumber_shouldReturnRightIntegerValue() {
-        String input = "Ring: 1";
-
-        assertEquals(1, RingClassifier.extractRingNumber(input));
-    }
 }

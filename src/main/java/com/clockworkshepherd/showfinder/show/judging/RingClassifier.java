@@ -4,7 +4,7 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 public class RingClassifier {
-    public static final Pattern pattern = Pattern.compile("Ring:\\s[0-9]");
+    public static final Pattern pattern = Pattern.compile("Ring:\\s[0-9]+");
     public static final String term = "Ring: ";
 
     public static void process(String input, JudgingPlan context) {
@@ -14,7 +14,7 @@ public class RingClassifier {
         }
     }
 
-    public static int extractRingNumber(String input) {
+    private static int extractRingNumber(String input) {
         input = input.substring(term.length());
         return Integer.parseInt(input);
     }

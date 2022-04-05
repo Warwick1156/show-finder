@@ -7,7 +7,7 @@ public class JudgeClassifier {
     private static final Pattern pattern = Pattern.compile("(Sędzia:\\s)([A-Z][a-z]+)(\\s[A-Z][a-z]+)?(\\s[A-Z][a-z]+)");
     private static final String term = "Sędzia: ";
 
-    public void process(String textLine, JudgingPlan context) {
+    public static void process(String textLine, JudgingPlan context) {
         Matcher matcher = pattern.matcher(textLine);
         if (matcher.find()) {
             context.getLastRing()
@@ -15,7 +15,7 @@ public class JudgeClassifier {
         }
     }
 
-    public static String extractJudgeName(String input) {
+    private static String extractJudgeName(String input) {
         return input.substring(term.length());
     }
 }
