@@ -5,6 +5,7 @@ import java.util.List;
 
 public class Breed {
     private String breedName;
+    private String judgingStartTime = "";
     private List<Sex> sexes = new ArrayList<>();
 
     public Breed(String breedName) {
@@ -27,5 +28,13 @@ public class Breed {
 
     public List<Sex> getSexes() {
         return sexes;
+    }
+
+    public void setJudgingStartTime(String judgingStartTime) {
+        this.judgingStartTime = judgingStartTime;
+    }
+
+    public String getJudgingStartTime() {
+        return judgingStartTime;
     }
 }
