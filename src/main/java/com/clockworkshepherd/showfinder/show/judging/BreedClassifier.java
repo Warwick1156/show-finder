@@ -5,7 +5,7 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 public class BreedClassifier implements Classifier{
-    public final static Pattern pattern = Pattern.compile("([A-Z]?[a-z]+\\s?)+");
+    public final static Pattern pattern = Pattern.compile("([\\p{IsAlphabetic}]+\\s?'?-?)+");
 
     private final List<String> breeds;
 
@@ -25,7 +25,6 @@ public class BreedClassifier implements Classifier{
 
     private String extractBreedName(String input) {
         Matcher matcher = pattern.matcher(input);
-        matcher.find();
 
         return matcher.group().strip();
     }

@@ -4,18 +4,14 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 public class JudgeClassifier implements Classifier{
-    private static final Pattern pattern = Pattern.compile("(Sędzia:\\s)([A-Z][a-z]+)(\\s[A-Z][a-z]+)?(\\s[A-Z][a-z]+)");
-    private static final String term = "Sędzia: ";
+    private static final Pattern pattern = Pattern.compile("(Sędzia:\\s)(?<judgeName>([\\p{IsAlphabetic}]+)\\s" +
+            "([\\p{IsAlphabetic}]+\\s)?([\\p{IsAlphabetic}]*))");
 
     public void process(String input, JudgingPlan context) {
         Matcher matcher = pattern.matcher(input);
         if (matcher.find()) {
             context.getLastRing()
-                    .setJudge(extractJudgeName(matcher.group()));
+                    .setJudge(matcher.group("judgeName").strip());
         }
-    }
-
-    private static String extractJudgeName(String input) {
-        return input.substring(term.length());
     }
 }
