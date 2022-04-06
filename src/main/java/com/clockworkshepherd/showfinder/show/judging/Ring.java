@@ -7,6 +7,7 @@ public class Ring {
     private String judge;
     private int ringNumber;
     private List<Breed> breeds = new ArrayList<>();
+    private int totalDogs = 0;
 
     Ring() {}
 
@@ -46,4 +47,11 @@ public class Ring {
         breeds.add(new Breed(breedName));
     }
 
+    public void setTotalDogs(int totalDogs) {
+        this.totalDogs = totalDogs;
+    }
+
+    public int getTotalDogs() {
+        return totalDogs;
+    }
 }
