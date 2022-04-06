@@ -26,10 +26,10 @@ class CompetitionClassifierTest {
 
         new CompetitionClassifier().process(input, judgingPlan);
 
-        assertEquals("Open Class", getLastCompetition(judgingPlan).getName());
-        assertEquals(2, getLastCompetition(judgingPlan).getDogsInCompetition());
-        assertEquals(1325, getLastCompetition(judgingPlan).getNumbersFrom());
-        assertEquals(1326, getLastCompetition(judgingPlan).getNumbersTo());
+        assertEquals("Open Class", getLastCompetition().getName());
+        assertEquals(2, getLastCompetition().getDogsInCompetition());
+        assertEquals(1325, getLastCompetition().getNumbersFrom());
+        assertEquals(1326, getLastCompetition().getNumbersTo());
     }
 
     @Test
@@ -38,7 +38,8 @@ class CompetitionClassifierTest {
 
         new CompetitionClassifier().process(input, judgingPlan);
 
-        assertEquals(1324, getLastCompetition(judgingPlan).getNumbersTo());
+        assertEquals(1324, getLastCompetition().getNumbersTo());
+        assertEquals(getLastCompetition().getNumbersFrom(), getLastCompetition().getNumbersTo());
     }
 
     @Test
@@ -50,7 +51,7 @@ class CompetitionClassifierTest {
         assertEquals(0, judgingPlan.getLastRing().getLastBreed().getLastSex().getCompetitions().size());
     }
 
-    Competition getLastCompetition(JudgingPlan judgingPlan) {
+    Competition getLastCompetition() {
         List<Competition> competitions = judgingPlan.getLastRing().getLastBreed().getLastSex().getCompetitions();
         return competitions.get(competitions.size() - 1);
     }
