@@ -21,9 +21,7 @@ public class JudgingPlanBuilder {
     }
 
     public JudgingPlan build() {
-        textLines.forEach(line -> {
-            classifiers.forEach(classifier -> classifier.process(line, judgingPlan));
-        });
+        textLines.forEach(line -> classifiers.forEach(classifier -> classifier.process(line, judgingPlan)));
 
         return judgingPlan;
     }
